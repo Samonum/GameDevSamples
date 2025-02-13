@@ -1,6 +1,8 @@
 # Pong
 Create an implementation of the classic game of Pong for 4 players, with a simple AI.
 
+![4 player pong](https://m.gjcdn.net/game-screenshot/600/443803-ll-36qrtgrj-v4.webp)
+
 ### Basic Functionality of Pong:
 1. Each player controlls one paddle, the paddles are placed on the top, bottom, left and right of the screen. (1p)
 2. The players can move the paddle along their side of the field. (1p)
