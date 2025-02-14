@@ -17,9 +17,9 @@ namespace DoubleBubble
             _lastState = Keyboard.GetState();
         }
 
-        public override void Update()
+        public override void Update(GameTime gameTime)
         {
-            base.Update();
+            base.Update(gameTime);
             if (Keyboard.GetState().IsKeyDown(Keys.Left))
             {
                 Location -= Speed;

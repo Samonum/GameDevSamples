@@ -38,11 +38,11 @@ namespace DoubleBubble
             Viewport viewport = _graphics.GraphicsDevice.Viewport;
 
 
-            GameObjects.Add(new Tank(tankTexture, new Vector2(viewport.Width / 2, viewport.Height)));
+            //GameObjects.Add(new Tank(tankTexture, new Vector2(viewport.Width / 2, viewport.Height)));
 
-            GameObjects.Add(new Bubble(new Vector2(400, 50), bubbleTexture, Vector2.UnitX * 10, viewport.Bounds));
-            GameObjects.Add(new Bubble(new Vector2(200, 100), bubbleTexture, Vector2.UnitX * 8, viewport.Bounds));
-            GameObjects.Add(new Bubble(new Vector2(800, 200), bubbleTexture, Vector2.UnitX * 16, viewport.Bounds));
+            GameObjects.Add(new Bubble(new Vector2(400, 50), bubbleTexture, Vector2.UnitX * 150, viewport.Bounds));
+            GameObjects.Add(new Bubble(new Vector2(200, 100), bubbleTexture, Vector2.UnitX * 120, viewport.Bounds));
+            GameObjects.Add(new Bubble(new Vector2(800, 200), bubbleTexture, Vector2.UnitX * 220, viewport.Bounds));
         }
 
         protected override void Update(GameTime gameTime)
@@ -52,7 +52,7 @@ namespace DoubleBubble
 
             foreach (GameObject gameObject in GameObjects)
             {
-                gameObject.Update();
+                gameObject.Update(gameTime);
             }
 
             for (int i = 0; i < GameObjects.Count; i++)

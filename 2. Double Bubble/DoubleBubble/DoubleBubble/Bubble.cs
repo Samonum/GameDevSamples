@@ -21,21 +21,21 @@ namespace DoubleBubble
             Location = location;
             Velocity = velocity;
             Sprite = sprite;
-            Acceleration = new Vector2(0, .6f);
+            Acceleration = new Vector2(0, 400);
             Scale = scale;
             Bounds = bounds;
         }
         
-        public override void Update()
+        public override void Update(GameTime gameTime)
         {
-            base.Update();
-            Velocity += Acceleration;
-            Location += Velocity;
+            base.Update(gameTime);
+            Velocity += (float)gameTime.ElapsedGameTime.TotalSeconds * Acceleration;
+            Location += (float)gameTime.ElapsedGameTime.TotalSeconds * Velocity;
 
             if (Location.Y + Radius > Bounds.Bottom)
             {
                 Velocity.Y = -Velocity.Y;
-                Location.Y = Bounds.Bottom - Radius;
+                //Location.Y = Bounds.Bottom - Radius;
             }
             if (Location.X - Radius < Bounds.Left)
             {
@@ -55,11 +55,16 @@ namespace DoubleBubble
             if (other is Bubble)
             {
                 Vector2 collisionNormal = Location - other.Location;
+                collisionNormal.Normalize();
+                Velocity = Vector2.Reflect(Velocity, collisionNormal);
 
+
+                /*
                 if(Math.Sign(Velocity.X) != Math.Sign(collisionNormal.X))
                 {
                     Velocity.X = -Velocity.X;
                 }
+                */
             }
         }
 

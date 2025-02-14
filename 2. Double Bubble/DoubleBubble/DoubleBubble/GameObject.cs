@@ -9,7 +9,7 @@ namespace DoubleBubble
         public Texture2D Sprite;
         public Vector2 Location;
         public virtual float Radius { get { return Sprite.Width / 2; } }
-        public virtual void Update() { }
+        public virtual void Update(GameTime gameTime) { }
         public virtual void Draw(SpriteBatch spriteBatch) { }
 
         public virtual void OnCollision(GameObject other) { }
