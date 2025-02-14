@@ -32,10 +32,12 @@ namespace DoubleBubble
             Velocity += (float)gameTime.ElapsedGameTime.TotalSeconds * Acceleration;
             Location += (float)gameTime.ElapsedGameTime.TotalSeconds * Velocity;
 
+            // Reflect the ball on X and Y axis and push them out of the wall.
+
             if (Location.Y + Radius > Bounds.Bottom)
             {
                 Velocity.Y = -Velocity.Y;
-                //Location.Y = Bounds.Bottom - Radius;
+                Location.Y = Bounds.Bottom - Radius;
             }
             if (Location.X - Radius < Bounds.Left)
             {
@@ -55,7 +57,9 @@ namespace DoubleBubble
             if (other is Bubble)
             {
                 Vector2 collisionNormal = Location - other.Location;
+                //collisionNormal.Y = 0;
                 collisionNormal.Normalize();
+
                 Velocity = Vector2.Reflect(Velocity, collisionNormal);
 
 
