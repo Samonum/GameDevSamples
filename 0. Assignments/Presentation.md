@@ -6,7 +6,7 @@ In the presentation:
 -  Explain what in the code caused said bug / Why this solution was chosen over other options
 -  Give a solution to the bug / how this solution is implemented
 
-The exact code is probably not available, so an approximation will do.
+The exact code is probably not available, so give an approximation. Your code does not have to works, but should give an insight in what happens.
 
 Examples of bugs:
 -  The game speeding up in space invaders
