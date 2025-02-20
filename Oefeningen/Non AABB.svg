@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="Non AABB.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.99508277"
+     inkscape:cx="396.44943"
+     inkscape:cy="561.25984"
+     inkscape:window-width="2256"
+     inkscape:window-height="1398"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Laag 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.6;stroke-linecap:square;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1"
+       width="43.340195"
+       height="61.686661"
+       x="135.05986"
+       y="8.1204529"
+       transform="rotate(34.409405)" />
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-weight:300;font-size:8.46667px;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light Italic';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:none;stroke:#000000;stroke-width:0.600001;stroke-linecap:square;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
+       x="53.709938"
+       y="129.22292"
+       id="text1"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="stroke-width:0.6"
+         x="53.709938"
+         y="129.22292">(2,4)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-weight:300;font-size:8.46667px;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light Italic';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:none;stroke:#000000;stroke-width:0.600001;stroke-linecap:square;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
+       x="103.06699"
+       y="167.59653"
+       id="text1-8"><tspan
+         sodipodi:role="line"
+         id="tspan1-8"
+         style="stroke-width:0.6"
+         x="103.06699"
+         y="167.59653">(6,1)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-weight:300;font-size:8.46667px;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light Italic';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:none;stroke:#000000;stroke-width:0.600001;stroke-linecap:square;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
+       x="95.188896"
+       y="77.10833"
+       id="text2"><tspan
+         sodipodi:role="line"
+         id="tspan2"
+         style="stroke-width:0.6"
+         x="95.188896"
+         y="77.10833">(8,12)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-weight:300;font-size:8.46667px;font-family:'Bookman Old Style';-inkscape-font-specification:'Bookman Old Style Light Italic';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:none;stroke:#000000;stroke-width:0.600001;stroke-linecap:square;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1"
+       x="142.78334"
+       y="102.10206"
+       id="text3"><tspan
+         sodipodi:role="line"
+         id="tspan3"
+         style="stroke-width:0.6"
+         x="142.78334"
+         y="102.10206">(12,9)</tspan></text>
+  </g>
+</svg>
