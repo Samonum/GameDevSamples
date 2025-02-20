@@ -4,8 +4,8 @@ Wat als je alleen het line segment neemt?
 
 2. Maak de volgende non-axis alligned bounding box maken met de shapes die tijdens de les behandeld zijn?
 
-![alt text]([http://url/to/img.png](https://raw.githubusercontent.com/Samonum/GameDevSamples/refs/heads/main/Oefeningen/Non%20AABB.svg)) 
+![alt text](https://raw.githubusercontent.com/Samonum/GameDevSamples/refs/heads/main/Oefeningen/Non%20AABB.svg)
 
 3. We willen een vission cone maken, welke colliders kan je hiervoor gebruiken?
 
-![Vision cone]([http://url/to/img.png](https://github.com/Samonum/GameDevSamples/blob/main/Oefeningen/Vision.svg)) 
+![Vision cone](https://github.com/Samonum/GameDevSamples/blob/main/Oefeningen/Vision.svg)
