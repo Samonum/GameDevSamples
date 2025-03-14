@@ -27,7 +27,7 @@ namespace Fireworks
         {
             if (lifespan < 0)
                 return;
-            spriteBatch.Draw(sprite, location, color);
+            spriteBatch.Draw(sprite, location, null, color, 0,sprite.Bounds.Center.ToVector2(), scale, SpriteEffects.None,0);
         }
     }
 

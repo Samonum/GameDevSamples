@@ -12,21 +12,23 @@ namespace Fireworks
         public float lifespan = 5;
         private Particle[] particles;
 
+        public float minScale = 0.5f;
+        public float maxScale = 2f;
 
         public float minDirection = 0;
         public float maxDirection = 2 * (float)Math.PI;
+
         public float minSpeed = 5;
-        public float maxSpeed = 30;
+        public float maxSpeed = 40;
+
         public Vector2 acceleration = new Vector2(0, 20f);
         public Vector2 location;
-        public float minScale = 0.8f;
-        public float maxScale = 1.2f;
 
         public Texture2D sprite;
         public ParticleEmitter(int particleCount, Vector2 location, Texture2D sprite)
         {
             this.sprite = sprite;
-            this.location = location - sprite.Bounds.Center.ToVector2();
+            this.location = location;
             particles = new Particle[particleCount];
             ResetParticles();
             
