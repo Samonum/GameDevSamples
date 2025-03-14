@@ -151,6 +151,5 @@ namespace SpaceDefence
                 RNG.Next(0, Game.GraphicsDevice.Viewport.Width),
                 RNG.Next(0, Game.GraphicsDevice.Viewport.Height));
         }
-
     }
 }
