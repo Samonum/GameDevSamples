@@ -7,9 +7,11 @@ namespace Fireworks
     public class Particle
     {
         public float lifespan;
+
         public Vector2 velocity;
         public Vector2 acceleration;
         public Vector2 location;
+
         public float scale;
         public Texture2D sprite;
         public Color color;

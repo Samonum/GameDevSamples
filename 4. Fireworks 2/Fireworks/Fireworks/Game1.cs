@@ -9,6 +9,7 @@ namespace Fireworks
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private Firework _firework;
+        private SpriteFont _font;
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -35,8 +36,9 @@ namespace Fireworks
             SoundEffect explosion = Content.Load<SoundEffect>("Explosion");
 
             Vector2 location = new Vector2(_graphics.GraphicsDevice.Viewport.Width / 2, _graphics.GraphicsDevice.Viewport.Height - 50);
-            Vector2 velocity = new Vector2(0, -5);
+            Vector2 velocity = new Vector2(0, -1);
 
+            _font = Content.Load<SpriteFont>("File");
 
             _firework = new Firework(location, velocity, rocketSprite, explosionSprite, explosion);
         }
@@ -54,6 +56,7 @@ namespace Fireworks
 
             _spriteBatch.Begin();
             _firework.Draw(gameTime, _spriteBatch);
+            _spriteBatch.DrawString(_font, (1f/gameTime.ElapsedGameTime.TotalSeconds).ToString(), new Vector2(10,10), Color.White);
             _spriteBatch.End();
 
             base.Draw(gameTime);

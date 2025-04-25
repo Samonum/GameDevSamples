@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Security.Cryptography.X509Certificates;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -16,7 +15,7 @@ namespace Fireworks
         public float maxScale = 2f;
 
         public float minDirection = 0;
-        public float maxDirection = 2 * (float)Math.PI;
+        public float maxDirection = 2 * MathHelper.Pi;
 
         public float minSpeed = 5;
         public float maxSpeed = 40;
@@ -49,7 +48,7 @@ namespace Fireworks
                 particles[i].acceleration = acceleration;
                 particles[i].lifespan = lifespan;
                 particles[i].sprite = sprite;
-                particles[i].color = new Color(1f, 0f,0f, 0.4f);
+                particles[i].color = new Color((float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble(), 0.4f);
             }
         }
 

@@ -17,7 +17,6 @@ public class Firework
 	public Color FireworkColor;
 	public Vector2 Scale;
 	public ParticleEmitter Emitter;
-
 	public Firework(Vector2 position, Vector2 velocity, Texture2D rocketSprite, Texture2D explosionSprite, SoundEffect explosion)
 	{
 		Position = position;
@@ -37,7 +36,7 @@ public class Firework
 			if(Keyboard.GetState().IsKeyDown(Keys.Space))
 			{
 				Exploded = true;
-				Emitter = new ParticleEmitter(80, Position, ExplosionSprite);
+				Emitter = new ParticleEmitter(1000000, Position, ExplosionSprite);
 				Emitter.active = true;
                 Explosion.Play();
             }
