@@ -78,6 +78,8 @@ namespace SpaceDefence
             float nearY = Math.Clamp(Y, other.shape.Y, other.shape.Bottom);
             return  Contains(new Vector2(nearX, nearY));
         }
+
+
         /// <summary>
         /// Gets whether or not the Circle intersects the Line
         /// </summary>

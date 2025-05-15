@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics.Contracts;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -9,8 +8,8 @@ namespace SpaceDefence
     {
         public static int XSpacing = 70;
         public static int YSpacing = 200;
-        public static int ShipRows = 6;
-        public static int ShipColumns = 20;
+        public static int ShipRows = 3;
+        public static int ShipColumns = 7;
         private SpriteBatch _spriteBatch;
         private GraphicsDeviceManager _graphics;
         private GameManager _gameManager;

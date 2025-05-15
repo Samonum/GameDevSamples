@@ -60,7 +60,15 @@ namespace SpaceDefence
             {
                 health -= 1;
                 if (health < 0)
+                {
                     GameManager.GetGameManager().RemoveGameObject(this);
+                    ParticleData data = new ParticleData();
+                    data.lifespan = 5;
+                    data.particleCount = 40;
+                    data.maxScale = .6f;
+                    data.minScale = .2f;
+                    new ParticleEmitter(GetPosition().Center.ToVector2(), data).Emit();
+                }
             }
         }
 
@@ -72,7 +80,7 @@ namespace SpaceDefence
             Ship nearest = FindNearestEnemy();
             target = nearest == null ? Point.Zero : nearest.GetPosition().Center;
 
-            if(nearest != null && (target -GetPosition().Center).ToVector2().Length() < Range)
+            if( (target -GetPosition().Center).ToVector2().Length() < Range)
             {
                 if(cooldown < 0)
                 {

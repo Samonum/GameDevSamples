@@ -25,7 +25,7 @@ float4 MainPS(VertexShaderOutput input) : COLOR
 {
 	float4 color = tex2D(SpriteTextureSampler,input.TextureCoordinates);
 	if(color.x == color.z && color.y == 0)
-		color = float4(input.Color.xyz * color.x, color.w);
+		color = float4(input.Color.rgb * color.r, color.a * input.Color.a);
 	return color;
 }
 

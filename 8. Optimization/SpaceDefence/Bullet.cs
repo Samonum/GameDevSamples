@@ -43,6 +43,10 @@ namespace SpaceDefence
             if (other is Ship && (other.CollisionType & CollisionType) == 0)
             {
                 GameManager.GetGameManager().RemoveGameObject(this);
+                ParticleData data = new ParticleData();
+                data.maxScale = 0.2f;
+                data.minScale = 0.1f;
+                new ParticleEmitter(GetPosition().Center.ToVector2(), data).Emit();
             }
         }
 
