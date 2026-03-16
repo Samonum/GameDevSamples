@@ -159,7 +159,7 @@ namespace SpaceDefence
         public override Rectangle GetBoundingBox()
         {
             Point topLeft = new Point((int)Math.Min(Start.X, End.X), (int)Math.Min(Start.Y, End.Y));
-            Point size = new Point((int)Math.Max(Start.X, End.X), (int)Math.Max(Start.Y, End.X)) - topLeft;
+            Point size = new Point((int)Math.Max(Start.X, End.X), (int)Math.Max(Start.Y, End.Y)) - topLeft;
             return new Rectangle(topLeft,size);
         }
 
