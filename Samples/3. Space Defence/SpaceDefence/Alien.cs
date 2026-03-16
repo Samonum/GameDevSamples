@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SpaceDefence
 {
-    internal class Alien : GameObject
+    public class Alien : GameObject
     {
         private CircleCollider _circleCollider;
         private Texture2D _texture;

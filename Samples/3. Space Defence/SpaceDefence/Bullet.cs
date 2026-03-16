@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SpaceDefence
 {
-    internal class Bullet : GameObject
+    public class Bullet : GameObject
     {
         private Texture2D _texture;
         private CircleCollider _circleCollider;

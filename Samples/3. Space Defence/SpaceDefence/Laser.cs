@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SpaceDefence
 {
-    internal class Laser : GameObject
+    public class Laser : GameObject
     {
         private LinePieceCollider linePiece;
         private Texture2D sprite;
