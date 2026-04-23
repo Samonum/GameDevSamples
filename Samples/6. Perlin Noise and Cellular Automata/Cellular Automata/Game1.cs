@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection.Metadata;
 using Accord.Math;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -26,7 +25,7 @@ namespace CellularAutomata
         // Perlin Variables:
         DrawMode drawMode = DrawMode.Automata; // Toggles with P
         double zoom = .08; // [0, inf] How zoomed in the image is, more zoomed in means clearer borders
-        float perlinCutoff = 0.1f; // [-1, 1] The cutoff point where we decide between tile 1 or 0
+        float perlinCutoff = 0.2f; // [-1, 1] The cutoff point where we decide between tile 1 or 0
         int octaves = 4; // <1,32> Higher octaves makes the image more noisy
         float persistence = 0.65f; // [0,1] How fast values change. Higher values mean more clear borders
         float frequency = 1f; // [0,1] Similar to zoom
@@ -93,6 +92,7 @@ namespace CellularAutomata
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            // When the user presses space 
             if(Keyboard.GetState().IsKeyDown(Keys.Space) && !previous.IsKeyDown(Keys.Space))
             {
                 int[,] next = new int[_graphics.PreferredBackBufferWidth / tileHeight, _graphics.PreferredBackBufferHeight / tileWidth];
@@ -113,6 +113,12 @@ namespace CellularAutomata
             previous = Keyboard.GetState();
         }
 
+        /// <summary>
+        /// Get the number of naighbours from one tile that are set to 1
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
         public int GetNeighbourCount(int x, int y)
         {
             int count = 0;
@@ -138,13 +144,16 @@ namespace CellularAutomata
             _spriteBatch.Begin();
             for(int i = 0;i < tiles.GetLength(0);i++)
             {
-                for (int j = 0; j < tiles.GetLength(1); j++)
+                if (drawMode == DrawMode.Automata)
                 {
-                    Rectangle source = new Rectangle(tiles[i, j] * tileWidth, 0, tileWidth, tileHeight);
-                    Vector2 drawLocation = new Vector2(tileWidth * i, tileHeight * j);
-                    _spriteBatch.Draw(tileset, drawLocation, source, Color.White);
+                    for (int j = 0; j < tiles.GetLength(1); j++)
+                    {
+                        Rectangle source = new Rectangle(tiles[i, j] * tileWidth, 0, tileWidth, tileHeight);
+                        Vector2 drawLocation = new Vector2(tileWidth * i, tileHeight * j);
+                        _spriteBatch.Draw(tileset, drawLocation, source, Color.White);
+                    }
                 }
-                if (drawMode == DrawMode.Raw)
+                else if (drawMode == DrawMode.Raw)
                 {
                     for (int j = 0; j < tiles.GetLength(1); j++)
                     {

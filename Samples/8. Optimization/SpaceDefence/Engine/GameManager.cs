@@ -34,8 +34,8 @@ namespace SpaceDefence
             _toBeAdded = new List<GameObject>();
             InputManager = new InputManager();
             RNG = new Random();
-            WorldMatrix = Matrix.CreateScale(.3f);
-            //WorldMatrix = Matrix.CreateScale(1f) * Matrix.CreateTranslation(0, -800, 0);
+            //WorldMatrix = Matrix.CreateScale(.3f);
+            WorldMatrix = Matrix.CreateScale(0.8f) * Matrix.CreateTranslation(0, -600, 0);
         }
 
         public void Initialize(ContentManager content, Game game)

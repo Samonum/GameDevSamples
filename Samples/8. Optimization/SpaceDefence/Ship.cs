@@ -16,7 +16,11 @@ namespace SpaceDefence
         public float cooldown = 1;
         public float health = 100;
         private Texture2D ship_body;
+        private Color[] bodyData;
+        private Texture2D fadedBody;
         private Texture2D base_turret;
+        private Color[] turretData;
+        private Texture2D fadedTurret;
         private RectangleCollider _rectangleCollider;
         private Point target;
         private Color teamColor;
@@ -35,9 +39,19 @@ namespace SpaceDefence
 
         public override void Load(ContentManager content)
         {
-            // Ship sprites from: https://zintoki.itch.io/space-breaker
+            // Original ship sprites from: https://zintoki.itch.io/space-breaker
+
+            // Setting up the texture data so we can apply our colouring later
             ship_body = content.Load<Texture2D>("ship_body");
+            fadedBody = new Texture2D(ship_body.GraphicsDevice, ship_body.Width, ship_body.Height);
+            bodyData = new Color[ship_body.Width * ship_body.Height];
+            ship_body.GetData<Color>(bodyData);
+
             base_turret = content.Load<Texture2D>("base_turret");
+            turretData = new Color[base_turret.Width * base_turret.Height];
+            base_turret.GetData<Color>(turretData);
+            fadedTurret = new Texture2D(base_turret.GraphicsDevice, base_turret.Width, base_turret.Height);
+            
             _rectangleCollider.shape.Size = ship_body.Bounds.Size;
             _rectangleCollider.shape.Location -= new Point(ship_body.Width/2, ship_body.Height/2);
             base.Load(content);
@@ -150,13 +164,43 @@ namespace SpaceDefence
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(ship_body, _rectangleCollider.shape, teamColor);
+            ReplaceAndFadeTexture(bodyData, fadedBody, teamColor, health / 100);
+            ReplaceAndFadeTexture(turretData, fadedTurret, teamColor, health / 100);
+
+            spriteBatch.Draw(fadedBody, _rectangleCollider.shape, Color.White);
             float aimAngle = LinePieceCollider.GetAngle(LinePieceCollider.GetDirection(GetPosition().Center, target));
             Rectangle turretLocation = base_turret.Bounds;
             turretLocation.Location = _rectangleCollider.shape.Center;
-            spriteBatch.Draw(base_turret, turretLocation, null, teamColor, aimAngle, turretLocation.Size.ToVector2() / 2f, SpriteEffects.None, 0);
+            spriteBatch.Draw(fadedTurret, turretLocation, null, Color.White, aimAngle, turretLocation.Size.ToVector2() / 2f, SpriteEffects.None, 0);
 
             base.Draw(gameTime, spriteBatch);
+        }
+
+        public static void ReplaceAndFadeTexture(Color[] textureData, Texture2D target, Color color, float percentage)
+        {
+
+            Color[] targetData = new Color[textureData.Length];
+
+            for (int i = 0; i < targetData.Length; i++)
+            {
+                if (textureData[i].R == textureData[i].B && textureData[i].G == 0 && textureData[i].R != 0)
+                {
+                    // Read the Red chanel out as a float instead of a byte
+                    float originalShade = textureData[i].ToVector4().X;
+
+                    // Fade the pixel to black based on health percentage and shading
+                    targetData[i].R = (byte)(color.R * percentage * originalShade);
+                    targetData[i].G = (byte)(color.G * percentage * originalShade);
+                    targetData[i].B = (byte)(color.B * percentage * originalShade);
+                    targetData[i].A = textureData[i].A;
+                }
+                else
+                {
+                    targetData[i] = textureData[i];
+                }
+
+            }
+            target.SetData(targetData);
         }
 
     }

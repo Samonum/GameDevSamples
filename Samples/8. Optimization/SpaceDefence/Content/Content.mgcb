@@ -61,12 +61,6 @@
 /processorParam:TextureFormat=Color
 /build:Crate.png
 
-#begin Fade.fx
-/importer:EffectImporter
-/processor:EffectProcessor
-/processorParam:DebugMode=Auto
-/build:Fade.fx
-
 #begin laser_turret.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -114,10 +108,4 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:ship_body.png
-
-#begin TeamColors.fx
-/importer:EffectImporter
-/processor:EffectProcessor
-/processorParam:DebugMode=Auto
-/build:TeamColors.fx
 
