@@ -15,7 +15,7 @@ namespace SpaceDefence
 
         public float scale;
         public Texture2D sprite;
-        public Color color;
+        public Color color = Color.White;
 
         public override void Load(ContentManager content)
         {

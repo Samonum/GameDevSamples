@@ -53,7 +53,6 @@ namespace SpaceDefence
                 particle.acceleration = data.acceleration;
                 particle.lifespan = data.lifespan;
                 particle.fade = data.fade;
-                particle.color = new Color(200 + random.Next(55), 40 + random.Next(180), 40 + random.Next(80), 255);
                 GameManager.GetGameManager().AddGameObject(particle);
 
             }

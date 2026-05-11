@@ -106,6 +106,7 @@ namespace SpaceDefence
                 _rectangleCollider.shape.Location += (Vector2.Normalize((target -GetPosition().Center).ToVector2()) * speed  * (float)gameTime.ElapsedGameTime.TotalSeconds).ToPoint();
             }
             _rectangleCollider.shape.Location += (AvoidObstacles()* (float)gameTime.ElapsedGameTime.TotalSeconds).ToPoint();
+
         }
 
         public Point Shoot()
@@ -176,6 +177,13 @@ namespace SpaceDefence
             base.Draw(gameTime, spriteBatch);
         }
 
+        /// <summary>
+        /// Add team colors to the shipa and slowly fade them as they grow weaker.
+        /// </summary>
+        /// <param name="textureData">An array with the original ship texture data</param>
+        /// <param name="target">The buffer on the graphics card to write the data to</param>
+        /// <param name="color">The color to make the ship (alpha is ignored)</param>
+        /// <param name="percentage">The percentage of health left</param>
         public static void ReplaceAndFadeTexture(Color[] textureData, Texture2D target, Color color, float percentage)
         {
 

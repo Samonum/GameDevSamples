@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using SpaceDefence.Engine;
 
 namespace SpaceDefence
 {
@@ -10,11 +11,11 @@ namespace SpaceDefence
     {
         private static GameManager gameManager;
 
+        private FPSCounter counter;
         private List<GameObject> _gameObjects;
         private List<GameObject> _toBeRemoved;
         private List<GameObject> _toBeAdded;
         private ContentManager _content;
-        private Effect _teamColorEffect;
         public Matrix WorldMatrix { get; set; }
 
         public Random RNG { get; private set; }
@@ -46,11 +47,11 @@ namespace SpaceDefence
 
         public void Load(ContentManager content)
         {
-            _teamColorEffect = content.Load<Effect>("TeamColors");
             foreach (GameObject gameObject in _gameObjects)
             {
                 gameObject.Load(content);
             }
+            counter = new FPSCounter(content.Load<SpriteFont>("Font"));
         }
 
         public void HandleInput(InputManager inputManager)
@@ -81,7 +82,6 @@ namespace SpaceDefence
         public void Update(GameTime gameTime) 
         {
             InputManager.Update();
-
             // Handle input
             HandleInput(InputManager);
 
@@ -112,11 +112,14 @@ namespace SpaceDefence
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch) 
         {
-            spriteBatch.Begin(transformMatrix: WorldMatrix,effect: _teamColorEffect);
+            spriteBatch.Begin(transformMatrix: WorldMatrix);
             foreach (GameObject gameObject in _gameObjects)
             {
                 gameObject.Draw(gameTime, spriteBatch);
             }
+            spriteBatch.End();
+            spriteBatch.Begin();
+            counter.Draw(gameTime, spriteBatch);
             spriteBatch.End();
         }
 
